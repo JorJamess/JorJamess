@@ -39,8 +39,8 @@ def bars(x0, y0, h, col, txt, d0):
     o = []
     for i, (k, v) in enumerate(months):
         bh = max(3, v / mx * h)
-        st = "" if STATIC else f' class="grow" style="animation-delay:{d0+i*0.06:.2f}s"'
-        o.append(f'<rect{st} x="{x0+i*44}" y="{y0+h-bh}" width="30" height="{bh}" rx="3" fill="{col}" style="transform-origin:0 {y0+h}px"/>'
+        st = "" if STATIC else f' class="grow" style="transform-origin:0 {y0+h}px;animation-delay:{d0+i*0.06:.2f}s"'
+        o.append(f'<rect{st} x="{x0+i*44}" y="{y0+h-bh}" width="30" height="{bh}" rx="3" fill="{col}"/>'
                  f'<text x="{x0+i*44+15}" y="{y0+h+16}" font-size="10" text-anchor="middle" fill="{txt}">{k[5:]}</text>'
                  f'<text x="{x0+i*44+15}" y="{y0+h-bh-5}" font-size="10" text-anchor="middle" fill="{txt}">{v if v else ""}</text>')
     return "".join(o)
@@ -103,7 +103,7 @@ for i, (n, lang, desc, dt) in enumerate(REPOS[:4]):
              f'<text x="400" y="{y+14}" font-size="13" fill="{ink}" opacity=".65">{desc}</text>'
              f'<text x="840" y="{y+14}" font-size="12" text-anchor="end" fill="{ink}" opacity=".5">pushed {dt}</text></g>')
 A.append("</svg>")
-open("cards/_A-three-worlds.svg", "w").write("".join(A))
+pass  # variant A not published
 
 # ================= B: Terminal =================
 bg, fg, g, mut = "#0d1117", "#c9d1d9", "#3fb950", "#8b949e"
